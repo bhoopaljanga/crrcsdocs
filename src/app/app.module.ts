@@ -17,6 +17,10 @@ import { AppRoutingModule } from './app-routing.module';
 // Import app component
 import { AppComponent } from './app.component';
 
+
+// Import app component
+import { UserService, OnlyLoggedInUsersGuard } from './services/user-service';
+
 // Import containers
 import {
   DefaultFooterComponent,
@@ -98,8 +102,10 @@ const APP_CONTAINERS = [
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
-    IconSetService,
-    Title
+    IconSetService,    
+    Title,
+    UserService,
+    OnlyLoggedInUsersGuard,
   ],
   bootstrap: [AppComponent],
 })

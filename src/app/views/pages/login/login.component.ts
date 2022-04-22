@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user-service';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +9,16 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
-  constructor() { }
+  username = ""
+  constructor(private userService: UserService,
+    private router: Router) { }
+
+  login(){
+    if(this.username == "mani"){
+      this.userService.setLoggedIn();
+
+      this.router.navigate(['/docs']);
+    }
+  }
 
 }
