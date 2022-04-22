@@ -31,8 +31,9 @@ docsList: s3object[] = [];
   }
  
   async onUpload() {  
-    
-    this.http.get('https://cnsmzwycy43jf7c6egulpxvtxm0xtdxc.lambda-url.ap-south-1.on.aws?getSingedUrl='+this.selectedFile?.name, {
+   let fileName = this.selectedFile?.name?this.selectedFile?.name:"";
+    this.http.get('https://cnsmzwycy43jf7c6egulpxvtxm0xtdxc.lambda-url.ap-south-1.on.aws', {
+      params: {getSingedUrl: fileName, verb: 'put'},  
       responseType: 'text'
     }).subscribe((preSignedUrl)=>{
       console.log('2. PreSignedURL: ', preSignedUrl)
@@ -47,11 +48,23 @@ docsList: s3object[] = [];
      
   }
 
+  async downoad(item: any) {   
+   
+    this.http.get('https://cnsmzwycy43jf7c6egulpxvtxm0xtdxc.lambda-url.ap-south-1.on.aws',{
+      params: {getSingedUrl: item.Key} ,
+      responseType: 'text'
+    }).subscribe((preSignedUrl)=>{
+      window.open(preSignedUrl as string)
+    })
+     
+     
+  }
+
   
   getList() {  
     
     this.http.get('https://cnsmzwycy43jf7c6egulpxvtxm0xtdxc.lambda-url.ap-south-1.on.aws').subscribe((list:any)=>{
-     this.docsList = list;
+     this.docsList = list.S3Objects;
 
     })
      

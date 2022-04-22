@@ -28,7 +28,8 @@
             <tbody>
             <tr *ngFor="let doc of docsList">
               <th scope="row">1</th>
-              <td>{{doc.Key}}</td>
+              <td (click)="downoad(doc)">
+                <a href="javascript:void()">{{doc.Key}}</a></td>
               <td>{{doc.LastModified | date}}</td>
               <td>@mdo</td>
             </tr>
