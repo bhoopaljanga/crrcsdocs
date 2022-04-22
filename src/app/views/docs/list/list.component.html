@@ -1,0 +1,41 @@
+<c-row ngPreserveWhitespaces>
+  
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Documnets List</strong>
+
+        <div class="mb-3">
+          <label cLabel for="formFile">Default file input example</label>
+          <input cFormControl id="formFile" type="file" (change)="onFileSelected($event)"/>
+        </div>
+        <div class="col-auto">
+          <button cButton class="mb-3" type="submit" (click)="onUpload()" > Upload to S3 </button>  
+        </div>
+ 
+      </c-card-header>
+      <c-card-body>
+       
+           <table cTable>
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">File Name</th>
+              <th scope="col">Updated On</th>
+              <th scope="col">Heading</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let doc of docsList">
+              <th scope="row">1</th>
+              <td>{{doc.Key}}</td>
+              <td>{{doc.LastModified | date}}</td>
+              <td>@mdo</td>
+            </tr>
+           
+            </tbody>
+          </table> 
+      </c-card-body>
+    </c-card>
+  </c-col> 
+</c-row>
