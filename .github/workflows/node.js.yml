@@ -19,9 +19,9 @@ jobs:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    steps:      
+    steps: 
+    - uses: snow-actions/git-config-user@v1.0.0     
     - name: Git config user
-    - uses: snow-actions/git-config-user@v1.0.0
       with: 
         name: bhoopal       
         email: bhoopaljanga@gmail.com       
