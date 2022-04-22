@@ -19,11 +19,12 @@ jobs:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    steps:
-     - name: setup git config
-        run:|
-          git config user.name "bhoopal"
-          git config user.email "bhoopaljanga@gmail.com"          
+    steps:      
+    - name: Git config user
+    - uses: snow-actions/git-config-user@v1.0.0
+      with: 
+        name: bhoopal       
+        email: bhoopaljanga@gmail.com       
     - uses: actions/checkout@v3   
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
