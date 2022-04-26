@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 export interface s3object{
   BucketName: string,
@@ -17,10 +18,11 @@ Size: number
 })
 export class DocsListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 docsList: s3object[] = [];
   ngOnInit(): void {
-    this.getList();
+    this.getPaymentUrl();
     
   }
 
@@ -60,6 +62,17 @@ docsList: s3object[] = [];
      
   }
 
+  
+  getPaymentUrl() {  
+    
+    this.http.get('https://cnsmzwycy43jf7c6egulpxvtxm0xtdxc.lambda-url.ap-south-1.on.aws',{ 
+      responseType: 'text'
+    }).subscribe((preSignedUrl)=>{
+      location.href =  preSignedUrl as string;
+    })
+     
+     
+  }
   
   getList() {  
     

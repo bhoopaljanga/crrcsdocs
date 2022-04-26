@@ -1,0 +1,44 @@
+<c-row ngPreserveWhitespaces>
+  
+  <c-col xs="12">
+    <c-card class="mb-4"  *ngIf="cartState$ | async as state">
+      <c-card-header>        
+ 
+      </c-card-header>
+      <c-card-body>
+       
+<div class="row">
+	<app-cart [state]="state"></app-cart>
+  <div> 
+        <div>Total: {{ state.tot?.subTot | currency:'USD':'symbol':'1.2-2' }}</div>
+  
+        <div>
+          tax: {{ state.tot?.tax | currency:'USD':'symbol':'1.2-2' }}
+          <br />
+            at checkout: {{ state.tot?.grandTot | currency:'USD':'symbol':'1.2-2' }}
+          </div>
+        </div>
+        <div> 
+            <button class="btn btn-primary" *ngFor="let item of state.cart" (click)="remove(item)">{{ item.name }}
+             
+                         <svg cIcon name="cilX" size="lg" class="mr-1"></svg>
+            </button> 
+        </div>
+</div> 
+    <hr /> 
+
+        <div class="card" *ngFor="let item of state.store">
+          <div>	{{ item.name }}</div>
+          <div class="card-body">
+            <ul>
+              <li>{{ item.details }}</li>
+              <li>{{ item.price | currency:'USD':'symbol':'1.2-2' }}</li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-lg mr-1" style="margin-bottom: 4px;"  (click)="addItemToCart(item)">
+               <svg cIcon name="cilCart" size="lg" class="mr-1"></svg><span>Add to Cart</span></button>
+           </div>
+        </div>
+      </c-card-body>
+    </c-card>
+  </c-col> 
+</c-row>

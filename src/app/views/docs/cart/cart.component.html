@@ -1,0 +1,7 @@
+<p>
+	Shopping Cart:
+  
+  <button type="button" class="btn btn-warning btn-lg mr-1" style="margin-bottom: 4px;" [disabled]="state.cart.length < 1" (click)="checkout()">
+    <i class="fa fa-icon-basket-loaded"></i><span> Checkout {{ state.cart.length }} Item{{ state.cart.length > 1 ? 's' : '' }}</span></button>
+    
+</p>

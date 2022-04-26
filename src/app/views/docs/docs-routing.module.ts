@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; 
 import { DocsListComponent } from './list/list.component'; 
+import { ProdcutComponent } from './products/product.component';
 const routes: Routes = [
   {
     path: '',
@@ -10,13 +11,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'list',
+        redirectTo: 'prodcuts',
       },
       {
         path: 'list',        
         component: DocsListComponent,
         data: {
           title: 'Docs',
+        },
+      } , {
+        path: 'prodcuts',        
+        component: ProdcutComponent,
+        data: {
+          title: 'Prodcuts',
         },
       }  
     ],

@@ -4,6 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from './icons/icon-subset';
 import { Title } from '@angular/platform-browser';
+import { UserService } from './services/user-service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private userService: UserService,
     private titleService: Title,
     private iconSetService: IconSetService
   ) {
@@ -24,6 +26,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('user'))
+      this.userService.setLoggedIn();
+
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;

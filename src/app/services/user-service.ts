@@ -5,7 +5,7 @@ import { CanActivate, Router } from '@angular/router';
 export class UserService {
     _loggedIn = false;
     isLoggedIn(){
-        return this._loggedIn;
+        return this._loggedIn || localStorage.getItem('user');
 
     }
 
@@ -20,7 +20,8 @@ export class OnlyLoggedInUsersGuard implements CanActivate {
 
   canActivate() {
     console.log("OnlyLoggedInUsers");
-    if (this.userService.isLoggedIn()) { (3)
+    
+    if (this.userService.isLoggedIn()) {
       return true;
     } else {
      this.router.navigate(['login'])

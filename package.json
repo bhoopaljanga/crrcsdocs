@@ -4,7 +4,7 @@
   "config": {
     "coreui_library_short_version": "4.0",
     "coreui_library_docs_url": "https://coreui.io/angular/docs/",
-    "author":"bhoopal"
+    "author": "bhoopal"
   },
   "scripts": {
     "ng": "ng",
@@ -37,6 +37,7 @@
     "ngx-perfect-scrollbar": "^10.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "uuid": "^8.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -46,6 +47,7 @@
     "@angular/localize": "~13.3.0",
     "@types/jasmine": "~4.0.0",
     "@types/node": "^16.11.26",
+    "@types/uuid": "^8.3.4",
     "angular-cli-ghpages": "^1.0.0",
     "jasmine-core": "~4.0.1",
     "karma": "~6.3.17",

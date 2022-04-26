@@ -15,8 +15,8 @@ export class LoginComponent {
 
   login(){
     if(this.username == "mani"){
+      localStorage.setItem('user', this.username);
       this.userService.setLoggedIn();
-
       this.router.navigate(['/docs']);
     }
   }

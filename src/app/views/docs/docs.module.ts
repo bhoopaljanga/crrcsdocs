@@ -36,8 +36,14 @@ import { DocsComponentsModule } from '@docs-components/docs-components.module';
  
 import { DocsListComponent } from './list/list.component';
 
+import { CartComponent } from './cart/cart.component';
+
+import { ProdcutComponent } from './products/product.component';
+
+
 // Components Routing
 import { DocsRoutingModule } from './docs-routing.module';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   imports: [
@@ -70,7 +76,8 @@ import { DocsRoutingModule } from './docs-routing.module';
     TableModule,
     DocsComponentsModule,
   ],
-  declarations: [DocsListComponent
+  declarations: [DocsListComponent, CartComponent, ProdcutComponent
   ],
+  providers:[ShoppingCartService]
 })
 export class DocsModule {}

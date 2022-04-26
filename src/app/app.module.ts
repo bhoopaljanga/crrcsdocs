@@ -105,7 +105,7 @@ const APP_CONTAINERS = [
     IconSetService,    
     Title,
     UserService,
-    OnlyLoggedInUsersGuard,
+    OnlyLoggedInUsersGuard
   ],
   bootstrap: [AppComponent],
 })
