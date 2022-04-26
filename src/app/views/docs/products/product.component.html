@@ -1,8 +1,9 @@
-<c-row ngPreserveWhitespaces>
+<c-row *ngIf="!processing" ngPreserveWhitespaces>
   
   <c-col xs="12">
     <c-card class="mb-4"  *ngIf="cartState$ | async as state">
-      <c-card-header>        
+      <c-card-header *ngIf="paymentDetails">   
+        {{paymentDetails | json}}     
  
       </c-card-header>
       <c-card-body>
@@ -42,3 +43,9 @@
     </c-card>
   </c-col> 
 </c-row>
+
+
+<div *ngIf="processing" class="fade show" style="text-align: center; padding-top: calc(100vh / 2); height: 100vh">
+  <i class="spinner-grow spinner-grow-sm"></i>
+  <span class="m-1">Processing Request...</span>
+</div>
